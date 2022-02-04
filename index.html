@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--Boxicons CSS-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Tech</title>
+</head>
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="i.jpg" alt="logo">
+                </span>
+
+                <div class="image text">
+                    <span class="name">Codetech</span>
+                    <span class="profession"></span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <a href="#">
+                        <i class='bx bx-search icon'></i>
+                        <input type="search" placeholder="Search...">
+                    </a>
+                </li>
+                <ul class='menu-links'>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span classs="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span classs="text nav-text">Revenue</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon'></i>
+                            <span classs="text nav-text">Notification</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span classs="text nav-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon'></i>
+                            <span classs="text nav-text">Likes</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon'></i>
+                            <span classs="text nav-text">Wallets</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span classs="text nav-text">Logout</span>
+                    </a>
+                </li> 
+
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-moon icon moon' ></i> 
+                        <i class='bx bx-sun icon sun' ></i> 
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <div class="switch"></div>
+                    </div>
+
+                </li> 
+            </div>
+        </div>
+    </nav>
+   
+   <script>
+        var body = document.querySelector("body");
+        var sidebar = document.querySelector(".sidebar");
+        var toggleDiv = document.querySelector('.toggle-switch');
+        var move = document.querySelector('.switch');
+        var num = 0;
+        function toggleSwitch(){
+            if(num%2 == 0) {
+                move.classList.add("move");
+                body.style.background = "black";
+                sidebar.classList.add("add");
+            }
+            else{
+                toggleSwitchOff();
+            }
+            num += 1;
+        }
+        function toggleSwitchOff(){
+                move.classList.remove("move");
+                body.style.background = "#E4E9F7";
+                sidebar.classList.remove("add");
+        }
+        toggleDiv.addEventListener('click', toggleSwitch);
+   </script>
+
+
+    
+
+</body>
+</html>
