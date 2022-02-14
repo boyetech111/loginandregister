@@ -31,14 +31,16 @@ if(isset($_GET['edit'])){
     $run_edit = mysqli_query($mysqli,$edit_query);
 
         $edit_row=mysqli_fetch_array($run_edit);
-
-        $post_id = $edit_row['post_id'];
-        $post_title = $edit_row['post_title'];
-        $post_author = $edit_row['post_author'];
-        $post_keywords = $edit_row['post_keywords'];
-        $post_image = $edit_row['post_image'];
-        $post_content = $edit_row['post_content'];  
-
+        if($edit_row){
+            $post_id = $edit_row['post_id'];
+            $post_title = $edit_row['post_title'];
+            $post_author = $edit_row['post_author'];
+            $post_keywords = $edit_row['post_keywords'];
+            $post_image = $edit_row['post_image'];
+            $post_content = $edit_row['post_content'];  
+    
+        }
+       
 
 }
 
@@ -51,27 +53,27 @@ if(isset($_GET['edit'])){
 
         <tr>
             <td align="right">Post Title</td>
-            <td><input type="text" name="Title" size="30" value="<?php echo $post_title; ?>"/> </td>
+            <td><input type="text" name="Title" size="30" value="<?php echo isset($post_title)?$post_title:""; ?>"/> </td>
         </tr>
         
         <tr>
             <td align="right">Post Author</td>
-            <td><input type="text" name="Author" size="30" value="<?php echo $post_author; ?>"/></td>
+            <td><input type="text" name="Author" size="30" value="<?php echo isset($post_author)?$post_author:""; ?>"/></td>
         </tr>
         
         <tr>
             <td align="right">Post Keywords</td>
-            <td><input type="text" name="Keywords " size="30" value="<?php echo $post_keywords; ?>"/></td>
+            <td><input type="text" name="Keywords " size="30" value="<?php echo isset($post_keywords)?$post_keywords:""; ?>"/></td>
         </tr>
         
         <tr>
             <td align="right">Post Image</td>
-            <td><img src="../images/<?php echo $post_image;?>"></td>
+            <td><img src="../images/<?php echo isset($post_image)?$post_image:"";?>"></td>
         </tr>
         
         <tr>
             <td align="right">Post Content</td>
-            <td><textarea name="content" cols="30" rows="15" <?php echo $post_content; ?>></textarea></td>
+            <td><textarea name="content" cols="30" rows="15" <?php echo isset($post_content)?$post_content:""; ?>></textarea></td>
         </tr>
         
         <tr>
