@@ -75,7 +75,7 @@ if(isset($_GET['edit'])){
             <td align="right">Post Content</td>
             <td><textarea name="content" cols="30" rows="15" <?php echo isset($post_content)?$post_content:""; ?>></textarea></td>
         </tr>
-        
+        <input type="hidden" name="post_id" value="<?php echo $post_id ?>" />
         <tr>
             <td align="center" colspan="6"><input type="submit" name=
             "submit" value="Update Now"></td>
@@ -90,6 +90,7 @@ include("includes/connect.php");
 if(isset($_POST['submit'])){
 	
 	$post_title = $_POST['Title'];
+    $post_id = $_POST['post_id'];
 	$post_date = date('d-m-y');
 	$post_author = $_POST['Author'];
 	$post_keywords = $_POST['Keywords'];
@@ -112,8 +113,11 @@ if(isset($_POST['submit'])){
 	
 	move_uploaded_file($image_tmp, "../images/$post_image");
 		
-	$insert_query = "insert into posts (post_title,post_date,post_author,post_image,post_keywords,post_content) values 
-	(' $post_title',' $post_date','$post_author','$post_image','$post_keywords','$post_content') ";	
+	$insert_query = "
+    update posts set post_title = '$post_title', post_date = ". date('d-m-y').", post_author = 
+    '$post_author', post_keywords =  '$post_keywords', post_content = '$post_content', post_content = 
+    '$post_content', post_image = '$_FILES',
+    where post_id = '$post_id' ";	
 	
     // echo $insert_query;
 	if(mysqli_query($mysqli,$insert_query)) {
