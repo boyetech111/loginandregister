@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset($_session['user_name'])){
+
+header("location: login.php");
+}
+else {
+?>
 <html>
     <head>
      <title>Admin Panel</title>
@@ -30,7 +39,7 @@ website files and content</p>
 
     if(isset($_GET['insert'])){
 
-    include("insert_post.php");
+    include("insert_post.php"); 
 
 
     }
@@ -40,3 +49,5 @@ website files and content</p>
 
 </body>
 </html>
+
+<?php } ?>
