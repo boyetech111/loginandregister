@@ -45,7 +45,7 @@ if(isset($_GET['edit'])){
 }
 
 ?>
-   <form method="post" action="edit_post.php" enctype="multipart/form-data">
+   <form method="post" action="" enctype="multipart/form-data">
         <table width="600" bgcolor="orange" align="center" border="10">
         <tr>
             <td align="center" bgcolor="yellow" colspan="6"><h1>Edit The Post Here</h1></td>
@@ -88,42 +88,37 @@ if(isset($_GET['edit'])){
 include("includes/connect.php");
 
 if(isset($_POST['submit'])){
-	
+    
 	$post_title = $_POST['Title'];
     $post_id = $_POST['post_id'];
 	$post_date = date('d-m-y');
 	$post_author = $_POST['Author'];
-	$post_keywords = $_POST['Keywords'];
+	$post_keywords = $_POST['Keywords_'];
 	$post_content = $_POST['content'];
-	$post_image = $_FILES['Image']['name'];
-	$image_tmp = $_FILES['Image']['tmp_name'];
-	 
-	 
-	if($post_title=='' or $post_keywords=='' or 
-    $post_content=='' or $post_author=='') {
-		
-		
+	// $post_image = $_FILES['Image']['name'];
+	// $image_tmp = $_FILES['Image']['tmp_name'];
+
+	if($post_title=='' or $post_keywords=='' or $post_content=='' or $post_author=='') {
+	
 	echo "<script>alert('any of the fields is 
 	empty')</script>";
 	
 	exit();
-	}	
-	
-    else {
-	
-	move_uploaded_file($image_tmp, "../images/$post_image");
+
+	}else {
+	// move_uploaded_file($image_tmp, "../images/$post_image");
 		
 	$insert_query = "
     update posts set post_title = '$post_title', post_date = ". date('d-m-y').", post_author = 
     '$post_author', post_keywords =  '$post_keywords', post_content = '$post_content', post_content = 
-    '$post_content', post_image = '$_FILES',
+    '$post_content'
     where post_id = '$post_id' ";	
-	
+
     // echo $insert_query;
-	if(mysqli_query($mysqli,$insert_query)) {
+	if(mysqli_query($mysqli, $insert_query)) {
 	
     echo "<center><h1>Post Published Successfully!</h1></center>";
-	
+	header('location:edit_post.php?edit='.$post_id);
 	}	
 		
 	}
