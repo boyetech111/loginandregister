@@ -12,7 +12,7 @@
 <div id="sidebar">
 <h2><a href="#">Logout</a></h2>
 <h2><a href="view_post.php">View Posts</a></h2>
-<h2><a href="#">Insert New Post</a></h2>
+<h2><a href="index.php?insert=insert">Insert New Post</a></h2>
 <h2><a href="#">View Comments</a></hh2>
 
 
@@ -38,7 +38,7 @@
 <?php
 include("includes/connect.php");
 
-$query = "select * from posts";
+$query = "select * from posts order by 1 DESC";
 
 $run = mysqli_query($mysqli,$query);
 

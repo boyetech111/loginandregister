@@ -76,7 +76,9 @@ if(isset($_POST['submit'])){
     // echo $insert_query;
 	if(mysqli_query($mysqli,$insert_query)) {
 	
-    echo "<center><h1>Post Published Successfully!</h1></center>";
+    echo "<script>alert('post Published
+    successfully')</script>";
+    echo "<script>window.open('view_post.php','_self')</script>";
 	
 	}	
 		

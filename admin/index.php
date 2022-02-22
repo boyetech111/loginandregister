@@ -13,7 +13,7 @@
 
 <h2><a href="#">Logout</a></h2>
 <h2><a href="view_post.php">View Posts</a></h2>
-<h2><a href="#">Insert New Post</a></h2>
+<h2><a href="index.php?insert=insert">Insert New Post</a></h2>
 <h2><a href="#">View Comments</a></hh2>
 
 
@@ -24,7 +24,19 @@
    <p>This is your admin panel, where you can manage your 
 website files and content</p>
  
+
 </div>
+<?php
+
+    if(isset($_GET['insert'])){
+
+    include("insert_post.php");
+
+
+    }
+
+
+?>
 
 </body>
 </html>
