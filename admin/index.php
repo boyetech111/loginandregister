@@ -50,4 +50,4 @@ website files and content</p>
 </body>
 </html>
 
-<?php } ?>g
+<?php } ?>
