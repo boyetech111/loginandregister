@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_session['user_name'])){
+if(!isset($_SESSION['user_name'])){
 
 header("location: login.php");
 }
@@ -50,4 +50,4 @@ website files and content</p>
 </body>
 </html>
 
-<?php } ?>
+<?php } ?>g

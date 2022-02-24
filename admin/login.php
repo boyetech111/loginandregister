@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <head>
         <title>Admin Login</title>
@@ -36,3 +39,28 @@
 
 </body>
 </html>
+<?php
+include("includes/connect.php");
+
+if(isset($_POST['login'])){
+  
+    $user_name = $_POST['user_name'];
+    $user_pass = $_POST['user_pass'];
+
+    $admin_query = "select * from admin_login where user_name = '$user_name' AND user_pass = '$user_pass'";
+
+    $run = mysqli_query($mysqli,$admin_query);
+    if(mysqli_num_rows($run)>0){
+
+    $_SESSION['user_name']=$user_name;
+    header('location:index.php');
+    }
+    else {
+        echo "<script>alert('username or password is incorrect')</script>";
+    }
+
+}
+
+
+
+?>
