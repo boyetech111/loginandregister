@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_name'])){
+
+header("location: login.php");
+}
+else {
+?>
+
 <html>
   <head>
    <title>inserting new posts</title>
@@ -82,13 +92,11 @@ if(isset($_POST['submit'])){
 	
 	}	
 		
-	}
+}
 	 
 	 
 }
 
-
-
-
-
 ?>
+
+<?php } ?>

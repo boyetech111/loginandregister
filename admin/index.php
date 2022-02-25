@@ -20,7 +20,7 @@ else {
 
 <div id="sidebar">
 
-<h2><a href="#">Logout</a></h2>
+<h2><a href="logout.php">Logout</a></h2>
 <h2><a href="view_post.php">View Posts</a></h2>
 <h2><a href="index.php?insert=insert">Insert New Post</a></h2>
 <h2><a href="#">View Comments</a></hh2>

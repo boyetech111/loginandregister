@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_name'])){
+
+header("location: login.php");
+}
+else {
+?>
+
 <html>
     <head>
      <title>Admin Panel</title>
@@ -18,14 +28,14 @@
 
 </div>
 
-<table width="1000" border="5" align="center" bgcolor="pink">
+<table width="1000" border="5" align="center" bgcolor="lightgreen">
    <tr>
-      <td colspan="10" align="center" bgcolor="yellow"><h1>View All Posts</h1></td>
+      <td colspan="10" align="center" bgcolor="lightgreen"><h1>View All Posts</h1></td>
    </tr>
 
 
 
-   <tr bgcolor="orange">
+   <tr bgcolor="lightgreen">
       <th>Post No</th>
       <th>Post Date</th>
       <th>Post Author</th>
@@ -70,3 +80,4 @@ while ($row = mysqli_fetch_array($run)) {
 
 </body>
 </html>
+<?php } ?>

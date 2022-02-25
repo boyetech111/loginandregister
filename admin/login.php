@@ -44,8 +44,10 @@ include("includes/connect.php");
 
 if(isset($_POST['login'])){
   
-    $user_name = $_POST['user_name'];
-    $user_pass = $_POST['user_pass'];
+    $user_name = mysqli_real_escape_string($mysqli,$_POST['user_name']);
+    $user_pass = mysqli_real_escape_string($mysqli,$_POST['user_pass']);
+
+    $encrypt = ($user_password);
 
     $admin_query = "select * from admin_login where user_name = '$user_name' AND user_pass = '$user_pass'";
 
