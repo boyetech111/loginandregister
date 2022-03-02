@@ -10,10 +10,10 @@
 <div><?php include("include/navbar.php");?></div>
 <div><?php include("include/main_content.php");?></div>
 <div><?php include("include/sidebar.php");?></div>
+<div><?php include("include/footer.php");?></div>
 
 
 
-<div id="footer">Footer</div>
 
 </body>  
 </html>
